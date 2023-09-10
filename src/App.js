@@ -7,11 +7,13 @@ import Profile from "./components/Profile";
 import Feed from "./components/Feed";
 import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Instagram from "./components/Instagram";
 
 function App() {
   return (
     <>
       <Routes>
+        <Route path="/instagram" element={<Instagram />} />
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route element={<ProtectedRoute />}>
