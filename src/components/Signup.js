@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Signup() {
+  const [username, setusername] = useState("");
+  const [user_password, setuser_password] = useState("");
+  const [displayname, setdisplayname] = useState("");
+
+  async function signup(e) {
+    e.preventDefault();
+    let response = await fetch(
+      `https://apex.oracle.com/pls/apex/deeva/post/signup?username=${username}&user_password=${user_password}&displayname=${displayname}`,
+      { method: "POST" }
+    );
+  }
+
   return (
-    <div className="container">
+    <form onSubmit={signup} className="container">
       <div className="row">
         <div className="col-lg-4 col-md-5 col-sm-6 col-12 border m-auto">
           <h1 className="my-4 text-center">Instagram</h1>
@@ -19,17 +31,32 @@ function Signup() {
             <hr className="w-50"></hr>
           </div>
           <input
-            className="display_name form-control my-1"
+            value={displayname}
+            onChange={(e) => setdisplayname(e.target.value)}
+            type="text"
+            className="displayname form-control my-1"
+            id="inputname"
             placeholder="Name"
-          ></input>
+            required
+          />
           <input
+            value={username}
+            onChange={(e) => setusername(e.target.value)}
+            type="text"
+            id="inputusername"
             className="username form-control my-1"
             placeholder="Username"
-          ></input>
+            required
+          />
           <input
+            value={user_password}
+            onChange={(e) => setuser_password(e.target.value)}
+            type="text"
+            id="inputpassword"
             className="password form-control my-1"
             placeholder="Password"
-          ></input>
+            required
+          />
           <p className="fs-6 fw-light">
             People who use our service may have uploaded your contact
             information to Instagram. Learn More
@@ -38,17 +65,19 @@ function Signup() {
             By signing up, you agree to our Terms , Privacy Policy and Cookies
             Policy .
           </p>
-          <button className="btn btn-primary w-100 my-3">Sign Up</button>
+          <button type="submit" className="btn btn-primary w-100 my-3">
+            Sign Up
+          </button>
         </div>
       </div>
       <div className="row">
         <div className="col-lg-4 col-md-5 col-sm-6 col-12 border m-auto my-3">
           <p className="text-center my-2">
-            Have an account? <Link to="/login">Log In</Link>
+            Have an account? <Link to="/">Log In</Link>
           </p>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
 

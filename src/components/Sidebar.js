@@ -7,7 +7,7 @@ function Sidebar() {
   function logOut() {
     localStorage.setItem("username", null);
     localStorage.setItem("authenticated", false);
-    navigate("/login");
+    navigate("/");
   }
   return (
     <div className="row">
