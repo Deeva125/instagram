@@ -13,8 +13,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/instagram" element={<Instagram />} />
-        <Route path="/" element={<Login />} />
+        <Route path="/instagram" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/home" element={<Home />}>

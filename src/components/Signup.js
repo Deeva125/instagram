@@ -1,17 +1,22 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Signup() {
   const [username, setusername] = useState("");
   const [user_password, setuser_password] = useState("");
   const [displayname, setdisplayname] = useState("");
+  const navigate = useNavigate();
 
   async function signup(e) {
     e.preventDefault();
+    console.log("Deeva");
     let response = await fetch(
       `https://apex.oracle.com/pls/apex/deeva/post/signup?username=${username}&user_password=${user_password}&displayname=${displayname}`,
       { method: "POST" }
     );
+    if (response.status == 200) {
+      navigate("/instagram");
+    }
   }
 
   return (
@@ -73,7 +78,7 @@ function Signup() {
       <div className="row">
         <div className="col-lg-4 col-md-5 col-sm-6 col-12 border m-auto my-3">
           <p className="text-center my-2">
-            Have an account? <Link to="/">Log In</Link>
+            Have an account? <Link to="/instagram">Log In</Link>
           </p>
         </div>
       </div>

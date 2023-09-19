@@ -5,7 +5,7 @@ function ProtectedRoute() {
   if (localStorage.getItem("authenticated") === "true") {
     return <Outlet />;
   } else {
-    return <Navigate to="/login" />;
+    return <Navigate to="/instagram" />;
   }
 }
 
