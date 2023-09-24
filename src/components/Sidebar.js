@@ -41,7 +41,9 @@ function Sidebar() {
         </Link>
       </div>
       <div className="col-12 my-2">
-        <i className="bi bi-person-fill mx-3"></i>Profile
+        <Link className="text-dark text-decoration-none" to="/home/profile">
+          <i className="bi bi-person-fill mx-3"></i>Profile
+        </Link>
       </div>
       <div className="col-12 my-2">
         <button onClick={logOut} className="bg-white border-0 px-0">

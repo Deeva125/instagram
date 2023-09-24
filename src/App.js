@@ -7,7 +7,6 @@ import Profile from "./components/Profile";
 import Feed from "./components/Feed";
 import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Instagram from "./components/Instagram";
 
 function App() {
   return (

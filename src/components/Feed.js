@@ -60,7 +60,7 @@ function Feed() {
         <div className="row">
           <div className="col">
             <button
-              className="btn btn-outline-dark border-radius-3"
+              className="btn btn-outline-dark border-radius-3 mb-3"
               onClick={sortPostByLikes}
             >
               <i className="bi bi-chevron-up me-1"></i>

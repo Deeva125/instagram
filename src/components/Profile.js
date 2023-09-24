@@ -11,9 +11,11 @@ function Profile() {
       displayname: "Deeva S",
     },
   ]);
-  async function getUsers() {
+  async function userInfo() {
     let response = await fetch(
-      "https://apex.oracle.com/pls/apex/deeva/post/getUsers"
+      `https://apex.oracle.com/pls/apex/deeva/post/userInfo?username=${localStorage.getItem(
+        "username"
+      )}`
     );
     let data = await response.json();
     console.log(data.items);
@@ -22,8 +24,9 @@ function Profile() {
 
   return (
     <div>
-      <button onClick={getUsers}>Get Users</button>
+      <button onClick={userInfo}>Get Users</button>
       <p>Profile</p>
+      <p>{user[0].username}</p>
       <img className="w-100" src={user[0].profile_photo} alt="" />
     </div>
   );
