@@ -13,21 +13,28 @@ function Profile() {
   ]);
   async function userInfo() {
     let response = await fetch(
-      `https://apex.oracle.com/pls/apex/deeva/post/userInfo?username=${localStorage.getItem(
-        "username"
-      )}`
+      "https://apex.oracle.com/pls/apex/deeva/post/getUsers"
     );
     let data = await response.json();
+    for (let i = 0; i < data.items.length; i++) {
+      if (data.items[i].username === localStorage.getItem("username")) {
+        setuser(data.items[i]);
+        break;
+      }
+    }
     console.log(data.items);
-    setuser(data.items);
   }
+
+  useEffect(() => {
+    userInfo();
+  }, []);
 
   return (
     <div>
-      <button onClick={userInfo}>Get Users</button>
       <p>Profile</p>
-      <p>{user[0].username}</p>
-      <img className="w-100" src={user[0].profile_photo} alt="" />
+      <p>{user.displayname}</p>
+      <p>{user.username}</p>
+      <img className="w-100" src={user.profile_photo} alt="" />
     </div>
   );
 }

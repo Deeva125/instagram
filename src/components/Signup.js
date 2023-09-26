@@ -14,7 +14,7 @@ function Signup() {
       `https://apex.oracle.com/pls/apex/deeva/post/signup?username=${username}&user_password=${user_password}&displayname=${displayname}`,
       { method: "POST" }
     );
-    if (response.status == 200) {
+    if (response.status === 200) {
       navigate("/instagram");
     }
   }
