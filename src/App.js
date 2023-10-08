@@ -1,10 +1,10 @@
-import { Profiler, useState } from "react";
 import Home from "./components/Home";
 import Create from "./components/Create";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 import Feed from "./components/Feed";
+import Search from "./components/Search";
 import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -19,6 +19,7 @@ function App() {
             <Route path="" element={<Feed />} />
             <Route path="create" element={<Create />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="search" element={<Search />}></Route>
           </Route>
         </Route>
       </Routes>

@@ -19,8 +19,10 @@ function Sidebar() {
           <i className="bi bi-house-door-fill mx-3"></i>Home
         </Link>
       </div>
-      <div className="col-12 my-2 text-secondary">
-        <i className="bi bi-search mx-3"></i>Search
+      <div className="col-12 my-2">
+        <Link className="text-dark text-decoration-none" to="/home/search">
+          <i className="bi bi-search mx-3"></i>Search
+        </Link>
       </div>
       <div className="col-12 my-2 text-secondary">
         <i className="bi bi-compass mx-3"></i>Explore

@@ -11,6 +11,8 @@ function Profile() {
       displayname: "Deeva S",
     },
   ]);
+
+  const [imgurl, setimgurl] = useState("");
   async function userInfo() {
     let response = await fetch(
       "https://apex.oracle.com/pls/apex/deeva/post/getUsers"
@@ -24,6 +26,16 @@ function Profile() {
     }
     console.log(data.items);
   }
+  async function changeProfilePic() {
+    let response = await fetch(
+      `https://apex.oracle.com/pls/apex/deeva/post/changeProfilePic?userrname=deeva&imgurl=${imgurl}`,
+      { method: "POST" }
+    );
+  }
+
+  function handleImageUrlChange(e) {
+    setimgurl(e.target.value);
+  }
 
   useEffect(() => {
     userInfo();
@@ -35,6 +47,14 @@ function Profile() {
       <p>{user.displayname}</p>
       <p>{user.username}</p>
       <img className="w-100" src={user.profile_photo} alt="" />
+      <input
+        placeholder="Image Link"
+        className="w-100"
+        type="text"
+        onChange={handleImageUrlChange}
+        value={imgurl}
+      />
+      <button onClick={changeProfilePic}>Change Profile Picture</button>
     </div>
   );
 }
