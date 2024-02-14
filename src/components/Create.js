@@ -16,8 +16,9 @@ function Create() {
       alert("Please start link with https");
       return;
     }
+    let username = localStorage.getItem("username");
     let response = await fetch(
-      `https://apex.oracle.com/pls/apex/deeva/post/upload?title=${title}&p_desc=${postDescription}&imgurl=${imgurl}&likes=0&username=test`,
+      `https://apex.oracle.com/pls/apex/deevasworkspace/instagram/posts?username=${username}&title=${title}&imgurl=${imgurl}&post_description=${postDescription}&likes=0`,
       { method: "POST" }
     );
     console.log("uploaded new data to the database by deeva singhal");

@@ -6,8 +6,8 @@ function Post({ post, index }) {
   const likePost = async () => {
     setLoading(true);
     let respone = await fetch(
-      `https://apex.oracle.com/pls/apex/deeva/post/like?title=${post.title}`,
-      { method: "POST" }
+      `https://apex.oracle.com/pls/apex/deevasworkspace/instagram/posts?title=${post.title}`,
+      { method: "PUT" }
     );
     if (respone.status == 200) {
       setLike(like + 1);
@@ -19,6 +19,7 @@ function Post({ post, index }) {
     <div key={index} className="col-12">
       <div className="card">
         <div className="card-body">
+          <h6> {post.username} </h6>
           <h5 className="card-title">{post.title}</h5>
           <img src={post.imgurl} className="card-img-top" alt="" />
           {loading ? (

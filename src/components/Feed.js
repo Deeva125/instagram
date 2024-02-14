@@ -4,20 +4,11 @@ import Post from "./Post";
 
 function Feed() {
   const [posts, setposts] = useState([]);
-  const [stories, setstories] = useState([]);
-
-  async function getStories() {
-    let response = await fetch(
-      "https://apex.oracle.com/pls/apex/deeva/post/stories"
-    );
-    let data = await response.json();
-    setstories(data.items);
-    console.log(data.items);
-  }
+  const [stories, setstories] = useState([{username:"Deeva" , imageurl:"https://avatars.githubusercontent.com/u/108374249?v=4"},{username:"Deeva" , imageurl:"https://avatars.githubusercontent.com/u/108374249?v=4"},{username:"Deeva" , imageurl:"https://avatars.githubusercontent.com/u/108374249?v=4"}]);
 
   async function getPost() {
     let response = await fetch(
-      "https://apex.oracle.com/pls/apex/deeva/post/get"
+      "https://apex.oracle.com/pls/apex/deevasworkspace/instagram/posts"
     );
     let data = await response.json();
     setposts(data.items);
@@ -25,7 +16,7 @@ function Feed() {
 
   const sortPostByLikes = async () => {
     let response = await fetch(
-      "https://apex.oracle.com/pls/apex/deeva/post/get"
+      "https://apex.oracle.com/pls/apex/deevasworkspace/instagram/posts"
     );
     let data = await response.json();
     let sortedPost = [...data.items];
@@ -36,7 +27,6 @@ function Feed() {
 
   useEffect(() => {
     getPost();
-    getStories();
   }, []);
 
   return (
@@ -71,7 +61,7 @@ function Feed() {
 
         <div className="row post">
           {posts.map((post, index) => {
-            return <Post post={post} index={index} />;
+            return <Post post={post} key={index} />;
           })}
         </div>
       </div>

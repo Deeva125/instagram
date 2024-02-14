@@ -11,7 +11,7 @@ function Signup() {
     e.preventDefault();
     console.log("Deeva");
     let response = await fetch(
-      `https://apex.oracle.com/pls/apex/deeva/post/signup?username=${username}&user_password=${user_password}&displayname=${displayname}`,
+      `https://apex.oracle.com/pls/apex/deevasworkspace/instagram/users?username=${username}&user_password=${user_password}&displayname=${displayname}`,
       { method: "POST" }
     );
     if (response.status === 200) {

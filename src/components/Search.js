@@ -6,7 +6,7 @@ function Search() {
   const [results, setresults] = useState([]);
   async function getPosts(key) {
     let response = await fetch(
-      `https://apex.oracle.com/pls/apex/deeva/post/searchPosts?keyword=${key}`
+      `https://apex.oracle.com/pls/apex/deevasworkspace/instagram/search?keyword=${key}`
     );
     let data = await response.json();
     console.log(data);

@@ -9,7 +9,7 @@ function Login() {
   const authenticate = async () => {
     console.log("authenticating...");
     let response = await fetch(
-      "https://apex.oracle.com/pls/apex/deeva/post/getUsers"
+      "https://apex.oracle.com/pls/apex/deevasworkspace/instagram/users"
     );
     let data = await response.json();
     data = data.items;
